@@ -1,15 +1,14 @@
 /*
+ ******************************************************************************
+ *
  *  fileName    :   SudokuSolver.cc
  *
  *  Author      :   Aniket Awati <an.aaasss@gmail.com>
- *  Version     :   1.0.0
+ *  Modified By :   Aditya Shevade <aditya.shevade@gmail.com>
  *
- *  Created     :   11/10/2009
- *
- *  Update      
- *  Author       :   Aditya Shevade <aditya.shevade@gmail.com>
- *
- *  Modified    :   09/06/2011
+ *  Version     :   2.0.0
+ *  Created     :   10/11/2009
+ *  Modified    :   12/06/2011
  *
  *  Description :   This class solves SuDoKu puzzles. It receives a 2D array
  *                  during initialization (via constructor). The empty cells
@@ -19,13 +18,30 @@
  *                  The constructor itself calls the initialization methods
  *                  followed by the solvers and finally writes the input array
  *                  (using a reference call - does not return anything).
+ * 
+ *  License     :   This program is free software: you can redistribute it and/or modify
+ *                  it under the terms of the GNU General Public License as published by
+ *                  the Free Software Foundation, either version 3 of the License, or
+ *                  (at your option) any later version.
  *
+ *                  This program is distributed in the hope that it will be useful,
+ *                  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *                  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *                  GNU General Public License for more details.
+ *
+ *                  You should have received a copy of the GNU General Public License
+ *                  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  
+ *  Changelog   :
+ *      12/06/2011  :   Added license.
+ *                      Cleaned up the code.
+ *
+ ******************************************************************************
  */
 
 #include <iostream>
 #include <cstdio>
 #include <cstring>
-#include <sys/time.h>
 
 using namespace std;
 
@@ -64,9 +80,6 @@ class SudokuSolver {
             cerr << "Error: Puzzle cannot  be solved." << endl;
             exit (1);
         }
-    }
-
-    SudokuSolver () {
     }
 
     /*  This function initializes all the tags to false (as in empty). The tags

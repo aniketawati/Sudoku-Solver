@@ -1,11 +1,12 @@
 /*
- *  fileName    :   
+ ******************************************************************************
+ *  fileName    :   main.cc
  *
  *  Author      :   Aditya Shevade <aditya.shevade@gmail.com>
- *  Version     :   1.0.0
+ *  Version     :   1.0.1
  *
  *  Created     :   09/04/2011
- *  Modified    :   09/05/2011
+ *  Modified    :   12/06/2011
  *
  *  Description :   This code reads a text file in a specific format and then 
  *                  populates a 2D array. Then it creates an object of the
@@ -13,12 +14,29 @@
  *                  and returns the solved puzzle. Finally the result is written
  *                  back to another file.
  *
- *                  Input file format:
+ *  License     :   This program is free software: you can redistribute it and/or modify
+ *                  it under the terms of the GNU General Public License as published by
+ *                  the Free Software Foundation, either version 3 of the License, or
+ *                  (at your option) any later version.
+ *
+ *                  This program is distributed in the hope that it will be useful,
+ *                  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *                  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *                  GNU General Public License for more details.
+ *
+ *                  You should have received a copy of the GNU General Public License
+ *                  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Notes       :   Input file format:
  *                  row column value
  *                  row column value
  *                  ...
+ *  
+ *  Changelog   :
+ *      12/06/2011  :   Added license.
+ *                  
  *
- *                  Output file format:
+ ******************************************************************************
  */
 
 #include <iostream>
@@ -40,8 +58,8 @@ int main (int argc, char *argv[]) {
     int row, col, value;
     int problemMatrix [9][9];
     
-    if (argc <= 1 || argc > 2) {
-        cerr << "Error: Usage: " << argv[0] << " <Filename>" << endl;
+    if (argc <= 2 || argc > 3) {
+        cerr << "Error: Usage: " << argv[0] << " <InputFilename> <OutputFilename>" << endl;
         exit(1);
     }
     
@@ -63,7 +81,7 @@ int main (int argc, char *argv[]) {
     SudokuSolver SS(problemMatrix);
     printPuzzle (problemMatrix);
 
-    openOutFile ((char *)("Aditya_Shevade_9993938870_ans.txt"), outFile);
+    openOutFile (argv[2], outFile);
     writeOutFile (argv[1], outFile, problemMatrix);
     outFile.close();
 
